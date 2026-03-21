@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nmap Enumeration | Dinesh</title>
+  <meta name="description" content="Nmap enumeration lab writeup covering service discovery, findings, and lessons learned.">
+  <link rel="stylesheet" href="../style.css">
+  <script src="../script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="../index.htm" class="logo">Dinesh Adhikari</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
+      <nav class="site-nav" id="siteNav">
+        <a href="../index.htm">Home</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="skills.htm">Skills</a>
+        <a href="contact.htm">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>Nmap Enumeration Lab</h1>
+        <p class="page-lead">
+          Objective: Identify open ports, running services, and potential attack surface on a target machine.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid">
+        <article class="card">
+          <h3>Tools Used</h3>
+          <ul>
+            <li>Nmap</li>
+            <li>Kali Linux</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Step 1: Initial Scan</h3>
+          <pre>nmap -sS -T4 192.168.x.x</pre>
+          <p>
+            SYN scan used to quickly identify open ports. This gives a fast overview of exposed services.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Step 2: Service Detection</h3>
+          <pre>nmap -sV 192.168.x.x</pre>
+          <p>
+            Used to identify service versions. Important for finding known vulnerabilities.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Findings</h3>
+          <ul>
+            <li>Port 22 → SSH</li>
+            <li>Port 80 → HTTP</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Analysis</h3>
+          <p>
+            HTTP service suggests potential web vulnerabilities. SSH may be targeted for brute force or misconfiguration.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>What I Learned</h3>
+          <p>
+            Enumeration is the most critical phase. Without proper recon, exploitation becomes guesswork.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Dinesh Adhikari • Cybersecurity Portfolio</p>
+    </div>
+  </footer>
+</body>
+</html>
